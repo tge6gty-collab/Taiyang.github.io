@@ -497,30 +497,30 @@ section:nth-of-type(even) { background: var(--bg2); }
 .skill-accordion-item {
   border: 1px solid rgba(212,150,10,0.22);
   border-radius: 7px; overflow: hidden;
+  transition: border-color 0.25s;
 }
+.skill-accordion-item.open { border-color: rgba(212,150,10,0.52); }
 .skill-accordion-header {
   display: flex; justify-content: space-between; align-items: center;
-  width: 100%; padding: 0.55rem 0.85rem;
-  background: transparent; border: none; cursor: pointer;
+  padding: 0.6rem 0.9rem; cursor: pointer;
   font-size: 0.82rem; font-weight: 600;
   color: var(--text); font-family: var(--font-zh);
-  text-align: left; transition: background 0.2s;
+  user-select: none; transition: background 0.2s;
 }
 .skill-accordion-header:hover { background: rgba(212,150,10,0.09); }
+.skill-accordion-item.open .skill-accordion-header { background: rgba(212,150,10,0.06); }
 .skill-accordion-arrow {
-  font-size: 0.68rem; color: var(--gold);
-  transition: transform 0.3s ease; flex-shrink: 0;
+  color: var(--gold); flex-shrink: 0;
+  transition: transform 0.32s ease;
 }
 .skill-accordion-item.open .skill-accordion-arrow { transform: rotate(180deg); }
 .skill-accordion-body {
   max-height: 0; overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.3s ease;
-  font-size: 0.79rem; color: var(--text-muted);
-  line-height: 1.75; padding: 0 0.85rem;
+  transition: max-height 0.38s ease;
+  padding: 0 0.9rem;
 }
-.skill-accordion-item.open .skill-accordion-body {
-  max-height: 200px; padding: 0.45rem 0.85rem 0.75rem;
-}
+.skill-accordion-item.open .skill-accordion-body { padding: 0.5rem 0.9rem 0.8rem; }
+.skill-tag-group { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
 /* 时间轴 */
 .timeline { position: relative; padding-left: 1.5rem; }

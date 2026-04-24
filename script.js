@@ -241,11 +241,33 @@ const progressContainer = document.querySelector('.progress-container');
 if (progressContainer) progressObserver.observe(progressContainer);
 
 /* ===== 10. 核心技能手风琴 ===== */
-document.querySelectorAll('.skill-accordion-header').forEach(header => {
-  header.addEventListener('click', () => {
-    header.closest('.skill-accordion-item').classList.toggle('open');
+(function () {
+  const headers = document.querySelectorAll('.skill-accordion-header');
+  headers.forEach(header => {
+    const activate = () => {
+      const item = header.closest('.skill-accordion-item');
+      const body = item.querySelector('.skill-accordion-body');
+      const isOpen = item.classList.contains('open');
+
+      // 关闭全部
+      document.querySelectorAll('.skill-accordion-item').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.skill-accordion-body').style.maxHeight = '0';
+      });
+
+      // 若原本关闭则打开
+      if (!isOpen) {
+        item.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    };
+
+    header.addEventListener('click', activate);
+    header.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+    });
   });
-});
+}());
 
 /* ===== 11. 灯箱 ===== */
 const lightbox   = document.getElementById('lightbox');

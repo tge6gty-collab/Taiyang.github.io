@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>葛泰扬 · 个人主页</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 共享 SVG 滤镜：手绘抖动（仅用于装饰性藤蔓/分割线，不用于雷达图） -->
+  <svg style="display:none" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="hand-drawn" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="linearRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.018 0.022" numOctaves="2" seed="9" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- 灯箱 -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="项目详情" hidden>
+    <div class="lb-backdrop"></div>
+    <div class="lb-panel">
+      <button class="lb-close" id="lb-close" aria-label="关闭">✕</button>
+      <div class="lb-image" id="lb-image"></div>
+      <div class="lb-body">
+        <h3 class="lb-title" id="lb-title"></h3>
+        <p class="lb-desc" id="lb-desc"></p>
+        <div class="lb-tags" id="lb-tags"></div>
+        <div class="lb-links" id="lb-links"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 导航栏 -->
+  <nav id="navbar">
+    <div class="nav-logo">GTY</div>
+    <ul class="nav-links">
+      <li><a href="#hero">首页</a></li>
+      <li><a href="#about">关于</a></li>
+      <li><a href="#skills">技能</a></li>
+      <li><a href="#projects">项目</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero">
+    <!-- 穆夏《春》背景画 -->
+    <div class="hero-mucha-bg" aria-hidden="true">
+      <img src="../阿爾豐斯·慕夏 - 《春》.jpg" alt="" loading="eager">
+    </div>
+
+    <div class="particles" id="particles"></div>
+
+    <!-- 穆夏装饰框架（四面） -->
+    <div class="hero-frame" aria-hidden="true">
+
+      <!-- 顶部横幅（纯线条，无植物） -->
+      <svg class="hf-top" viewBox="0 0 1200 88" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="64" x2="1200" y2="64" stroke="#2c1810" stroke-width="2.8" opacity="0.55" filter="url(#hand-drawn)"/>
+        <line x1="0" y1="64" x2="1200" y2="64" stroke="#d4960a" stroke-width="1.8" opacity="0.7"/>
+        <line x1="0" y1="70" x2="1200" y2="70" stroke="#d4960a" stroke-width="0.8" stroke-dasharray="6 5" opacity="0.42"/>
+        <!-- interval tick marks -->
+        <line x1="200" y1="58" x2="200" y2="70" stroke="#d4960a" stroke-width="1.2" opacity="0.5"/>
+        <line x1="400" y1="58" x2="400" y2="70" stroke="#d4960a" stroke-width="1.2" opacity="0.5"/>
+        <line x1="800" y1="58" x2="800" y2="70" stroke="#d4960a" stroke-width="1.2" opacity="0.5"/>
+        <line x1="1000" y1="58" x2="1000" y2="70" stroke="#d4960a" stroke-width="1.2" opacity="0.5"/>
+        <circle cx="300" cy="64" r="2.2" fill="#d4960a" opacity="0.45"/>
+        <circle cx="500" cy="64" r="2.2" fill="#d4960a" opacity="0.45"/>
+        <circle cx="700" cy="64" r="2.2" fill="#d4960a" opacity="0.45"/>
+        <circle cx="900" cy="64" r="2.2" fill="#d4960a" opacity="0.45"/>
+      </svg>
+
+      <!-- 底部横幅（纯线条，无植物） -->
+      <svg class="hf-bottom" viewBox="0 0 1200 88" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="24" x2="1200" y2="24" stroke="#2c1810" stroke-width="2.8" opacity="0.55" filter="url(#hand-drawn)"/>
+        <line x1="0" y1="24" x2="1200" y2="24" stroke="#d4960a" stroke-width="1.8" opacity="0.7"/>
+        <line x1="0" y1="18" x2="1200" y2="18" stroke="#d4960a" stroke-width="0.8" stroke-dasharray="6 5" opacity="0.42"/>
+        <!-- interval tick marks -->
+        <line x1="200" y1="18" x2="200" y2="30" stroke="#d4960a" stroke-width="1.2" opacity="0.5"/>
+        <line x1="400" y1="18" x2="400" y2="30" stroke="#d4960a" stroke-width="1.2" opacity="0.5"/>
+        <line x1="800" y1="18" x2="800" y2="30" stroke="#d4960a" stroke-width="1.2" opacity="0.5"/>
+        <line x1="1000" y1="18" x2="1000" y2="30" stroke="#d4960a" stroke-width="1.2" opacity="0.5"/>
+        <circle cx="300" cy="24" r="2.2" fill="#d4960a" opacity="0.45"/>
+        <circle cx="500" cy="24" r="2.2" fill="#d4960a" opacity="0.45"/>
+        <circle cx="700" cy="24" r="2.2" fill="#d4960a" opacity="0.45"/>
+        <circle cx="900" cy="24" r="2.2" fill="#d4960a" opacity="0.45"/>
+      </svg>
+
+      <!-- 左侧竖线柱（纯几何，无植物） -->
+      <svg class="hf-left" viewBox="0 0 100 800" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="0" x2="50" y2="800" stroke="#2c1810" stroke-width="2.2" opacity="0.45" filter="url(#hand-drawn)"/>
+        <line x1="50" y1="0" x2="50" y2="800" stroke="#d4960a" stroke-width="1.2" opacity="0.55"/>
+        <!-- interval diamonds -->
+        <polygon points="50,160 57,175 50,190 43,175" fill="#d4960a" stroke="#2c1810" stroke-width="1.4" opacity="0.8"/>
+        <polygon points="50,360 57,375 50,390 43,375" fill="#d4960a" stroke="#2c1810" stroke-width="1.4" opacity="0.8"/>
+        <polygon points="50,560 57,575 50,590 43,575" fill="#d4960a" stroke="#2c1810" stroke-width="1.4" opacity="0.8"/>
+        <!-- small tick dots -->
+        <circle cx="50" cy="80"  r="2.5" fill="#d4960a" opacity="0.5"/>
+        <circle cx="50" cy="260" r="2.5" fill="#d4960a" opacity="0.5"/>
+        <circle cx="50" cy="460" r="2.5" fill="#d4960a" opacity="0.5"/>
+        <circle cx="50" cy="660" r="2.5" fill="#d4960a" opacity="0.5"/>
+      </svg>
+
+      <!-- 右侧竖线柱（纯几何，无植物） -->
+      <svg class="hf-right" viewBox="0 0 100 800" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="0" x2="50" y2="800" stroke="#2c1810" stroke-width="2.2" opacity="0.45" filter="url(#hand-drawn)"/>
+        <line x1="50" y1="0" x2="50" y2="800" stroke="#d4960a" stroke-width="1.2" opacity="0.55"/>
+        <!-- interval diamonds -->
+        <polygon points="50,160 57,175 50,190 43,175" fill="#d4960a" stroke="#2c1810" stroke-width="1.4" opacity="0.8"/>
+        <polygon points="50,360 57,375 50,390 43,375" fill="#d4960a" stroke="#2c1810" stroke-width="1.4" opacity="0.8"/>
+        <polygon points="50,560 57,575 50,590 43,575" fill="#d4960a" stroke="#2c1810" stroke-width="1.4" opacity="0.8"/>
+        <!-- small tick dots -->
+        <circle cx="50" cy="80"  r="2.5" fill="#d4960a" opacity="0.5"/>
+        <circle cx="50" cy="260" r="2.5" fill="#d4960a" opacity="0.5"/>
+        <circle cx="50" cy="460" r="2.5" fill="#d4960a" opacity="0.5"/>
+        <circle cx="50" cy="660" r="2.5" fill="#d4960a" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <!-- 主体内容 -->
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-greeting">你好，我是</p>
+        <h1 class="hero-name">
+          葛泰扬
+          <span class="hero-name-en">Taiyang Ge</span>
+        </h1>
+        <p class="hero-title"><span id="typed-text"></span><span class="cursor">|</span></p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary nav-trigger">查看项目</a>
+          <a href="#contact" class="btn btn-outline nav-trigger">联系我</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="photo-frame-wrap">
+          <img src="照片.jpg" alt="葛泰扬" class="portrait-img" />
+          <svg class="photo-frame" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="150" cy="150" r="110" fill="none" stroke="#d4960a" stroke-width="1.6"/>
+            <circle cx="150" cy="150" r="118" fill="none" stroke="#d4960a" stroke-width="0.9" stroke-dasharray="3.5 4" opacity="0.7"/>
+            <circle cx="150" cy="150" r="126" fill="none" stroke="#d4960a" stroke-width="0.5" opacity="0.38"/>
+            <!-- 8 gold accent dots at cardinal + diagonal positions -->
+            <circle cx="199" cy="32"  r="2.5" fill="#d4960a" opacity="0.6"/>
+            <circle cx="268" cy="101" r="2.5" fill="#d4960a" opacity="0.6"/>
+            <circle cx="268" cy="199" r="2.5" fill="#d4960a" opacity="0.6"/>
+            <circle cx="199" cy="268" r="2.5" fill="#d4960a" opacity="0.6"/>
+            <circle cx="101" cy="268" r="2.5" fill="#d4960a" opacity="0.6"/>
+            <circle cx="32"  cy="199" r="2.5" fill="#d4960a" opacity="0.6"/>
+            <circle cx="32"  cy="101" r="2.5" fill="#d4960a" opacity="0.6"/>
+            <circle cx="101" cy="32"  r="2.5" fill="#d4960a" opacity="0.6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator"><span></span></div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about">
+    <div class="section-header reveal">
+      <span class="section-tag">About</span>
+      <h2>关于我</h2>
+      <div class="section-divider" aria-hidden="true">
+        <svg class="divider-svg" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="22" x2="370" y2="22" stroke="#d4960a" stroke-width="1.5" opacity="0.6" filter="url(#hand-drawn)"/>
+          <line x1="430" y1="22" x2="800" y2="22" stroke="#d4960a" stroke-width="1.5" opacity="0.6" filter="url(#hand-drawn)"/>
+          <!-- center diamond node -->
+          <polygon points="400,10 413,22 400,34 387,22" fill="#d4960a" stroke="#2c1810" stroke-width="1.8" opacity="0.92"/>
+          <!-- interval dots -->
+          <circle cx="160" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="240" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="320" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="480" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="560" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="640" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+        </svg>
+      </div>
+    </div>
+    <div class="about-grid">
+      <div class="about-bio glass-card reveal">
+        <h3>个人简介</h3>
+        <p class="bio-placeholder">个人简介待补充…</p>
+        <div class="skills">
+          <h4>核心技能</h4>
+          <div class="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">MATLAB</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">医学图像分析</span>
+            <span class="tag">数据分析</span>
+            <span class="tag">产品思维</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-education reveal">
+        <h3>教育背景</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2025.08 — 至今</span>
+              <h4>伊利诺伊大学厄巴纳-香槟分校 (UIUC)</h4>
+              <p class="degree">硕士 · 生物医学工程</p>
+              <p class="school-note">Top 5 US News (C.E.)&nbsp;/&nbsp;Top 70 QS</p>
+              <div class="course-tags">
+                <span class="course-tag">Computational Math for ML</span>
+                <span class="course-tag">Biomedical Instrumentation</span>
+                <span class="course-tag">Stat Analysis Biomed Images</span>
+                <span class="course-tag">ML for Biomedical Data</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2021.09 — 2025.07</span>
+              <h4>北京中医药大学</h4>
+              <p class="degree">本科 · 中药制药</p>
+              <p class="school-note">211 / 双一流</p>
+              <div class="honors">
+                <span class="honor-tag">🏅 校二等奖学金 Top 2%</span>
+                <span class="honor-tag">🏆 天心飞跃奖 (2023.12)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section id="skills">
+    <div class="section-header reveal">
+      <span class="section-tag">Skills</span>
+      <h2>技能</h2>
+      <div class="section-divider" aria-hidden="true">
+        <svg class="divider-svg" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="22" x2="370" y2="22" stroke="#d4960a" stroke-width="1.5" opacity="0.6" filter="url(#hand-drawn)"/>
+          <line x1="430" y1="22" x2="800" y2="22" stroke="#d4960a" stroke-width="1.5" opacity="0.6" filter="url(#hand-drawn)"/>
+          <!-- center diamond node -->
+          <polygon points="400,10 413,22 400,34 387,22" fill="#d4960a" stroke="#2c1810" stroke-width="1.8" opacity="0.92"/>
+          <!-- interval dots -->
+          <circle cx="160" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="240" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="320" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="480" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="560" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="640" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+        </svg>
+      </div>
+    </div>
+    <div class="skills-grid">
+      <div class="radar-container glass-card reveal">
+        <h3>综合能力</h3>
+        <svg id="radar-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+      <div class="progress-container glass-card reveal">
+        <h3>技能熟练度</h3>
+        <div class="progress-bars">
+          <div class="progress-item">
+            <div class="progress-label"><span>Python</span><span class="progress-val">85%</span></div>
+            <div class="progress-track"><div class="progress-fill" data-value="85"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>Machine Learning</span><span class="progress-val">80%</span></div>
+            <div class="progress-track"><div class="progress-fill" data-value="80"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>产品思维</span><span class="progress-val">80%</span></div>
+            <div class="progress-track"><div class="progress-fill" data-value="80"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>数据分析</span><span class="progress-val">75%</span></div>
+            <div class="progress-track"><div class="progress-fill" data-value="75"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>MATLAB</span><span class="progress-val">70%</span></div>
+            <div class="progress-track"><div class="progress-fill" data-value="70"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>医学图像分析</span><span class="progress-val">65%</span></div>
+            <div class="progress-track"><div class="progress-fill" data-value="65"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects">
+    <div class="section-header reveal">
+      <span class="section-tag">Projects</span>
+      <h2>项目展示</h2>
+      <div class="section-divider" aria-hidden="true">
+        <svg class="divider-svg" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="22" x2="370" y2="22" stroke="#d4960a" stroke-width="1.5" opacity="0.6" filter="url(#hand-drawn)"/>
+          <line x1="430" y1="22" x2="800" y2="22" stroke="#d4960a" stroke-width="1.5" opacity="0.6" filter="url(#hand-drawn)"/>
+          <!-- center diamond node -->
+          <polygon points="400,10 413,22 400,34 387,22" fill="#d4960a" stroke="#2c1810" stroke-width="1.8" opacity="0.92"/>
+          <!-- interval dots -->
+          <circle cx="160" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="240" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="320" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="480" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="560" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="640" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="projects-masonry">
+
+      <div class="project-card glass-card"
+           data-title="生物医学图像分析"
+           data-desc="基于 U-Net 架构开发医学图像语义分割模型，在 MRI 脑部图像数据集上实现高精度病灶识别。运用数据增强和迁移学习策略，显著提升小样本条件下的模型鲁棒性，最终在测试集上达到 Dice 系数 0.87。"
+           data-tags="Python,PyTorch,OpenCV,U-Net"
+           data-color="linear-gradient(135deg,#8aab8e,#4a6b4a)"
+           data-github="#" data-demo="#">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#8aab8e,#4a6b4a)">
+          <span class="project-thumb-icon">🔬</span>
+        </div>
+        <div class="project-body">
+          <h3>生物医学图像分析</h3>
+          <p>使用深度学习方法对医学 MRI 图像进行语义分割与病灶识别，实现高精度自动化诊断辅助。</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">U-Net</span>
+          </div>
+        </div>
+        <div class="project-footer"><span class="lb-hint">点击查看详情 →</span></div>
+      </div>
+
+      <div class="project-card glass-card"
+           data-title="AI 产品需求分析工具"
+           data-desc="设计并原型化一款面向 AI 产品经理的需求管理工具，整合用户故事、功能优先级矩阵（RICE 模型）和竞品分析模块。通过 8 轮用户访谈验证核心痛点，完成从用户调研、竞品分析到 MVP 功能定义的完整产品设计流程，输出完整 PRD 文档与 Figma 高保真原型。"
+           data-tags="产品设计,Figma,用户研究,PRD,RICE"
+           data-color="linear-gradient(135deg,#d4960a,#8a6010)"
+           data-github="#" data-demo="#">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#d4960a,#8a6010)">
+          <span class="project-thumb-icon">📋</span>
+        </div>
+        <div class="project-body">
+          <h3>AI 产品需求分析工具</h3>
+          <p>面向 AI 产品经理的需求拆解与优先级分析助手，从用户调研到 MVP 定义的完整产品设计流程，含高保真 Figma 原型与完整 PRD。</p>
+          <div class="project-tags">
+            <span class="tag">产品设计</span><span class="tag">Figma</span><span class="tag">用户研究</span>
+          </div>
+        </div>
+        <div class="project-footer"><span class="lb-hint">点击查看详情 →</span></div>
+      </div>
+
+      <div class="project-card glass-card"
+           data-title="生物信号特征提取与分类"
+           data-desc="在 MATLAB 环境下实现 ECG 和 EEG 信号的完整时频分析流程：小波变换去噪、基线漂移校正、R 波峰值检测、HRV 特征提取，以及基于 SVM 和随机森林的心律失常分类。在 MIT-BIH 公开数据集上实现分类准确率 94.2%。"
+           data-tags="MATLAB,Signal Processing,Wavelet,SVM,HRV"
+           data-color="linear-gradient(135deg,#c0394b,#7a2535)"
+           data-github="#" data-demo="#">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#c0394b,#7a2535)">
+          <span class="project-thumb-icon">📡</span>
+        </div>
+        <div class="project-body">
+          <h3>生物信号特征提取与分类</h3>
+          <p>ECG/EEG 信号时频分析与机器学习分类，MIT-BIH 数据集心律失常识别准确率 94.2%。</p>
+          <div class="project-tags">
+            <span class="tag">MATLAB</span><span class="tag">Signal Processing</span><span class="tag">SVM</span>
+          </div>
+        </div>
+        <div class="project-footer"><span class="lb-hint">点击查看详情 →</span></div>
+      </div>
+
+      <div class="project-card glass-card"
+           data-title="医疗数据可视化仪表盘"
+           data-desc="利用 Python 与 Plotly/Dash 框架搭建多维度医疗数据交互仪表盘，支持按科室、时间段、诊断类别多维筛选，实现患者流量时序展示、指标对比雷达图与异常预警标注。设计清晰信息架构，帮助医疗管理团队提升数据洞察效率约 40%。"
+           data-tags="Python,Plotly,Dash,数据可视化,交互设计"
+           data-color="linear-gradient(135deg,#3a7a3a,#1e4a1e)"
+           data-github="#" data-demo="#">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#3a7a3a,#1e4a1e)">
+          <span class="project-thumb-icon">📊</span>
+        </div>
+        <div class="project-body">
+          <h3>医疗数据可视化仪表盘</h3>
+          <p>多维度医疗数据交互式可视化展示平台，支持动态筛选、时序分析与异常预警，提升管理决策效率。</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">Plotly</span><span class="tag">Dash</span>
+          </div>
+        </div>
+        <div class="project-footer"><span class="lb-hint">点击查看详情 →</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact">
+    <div class="section-header reveal">
+      <span class="section-tag">Contact</span>
+      <h2>联系我</h2>
+      <div class="section-divider" aria-hidden="true">
+        <svg class="divider-svg" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="22" x2="370" y2="22" stroke="#d4960a" stroke-width="1.5" opacity="0.6" filter="url(#hand-drawn)"/>
+          <line x1="430" y1="22" x2="800" y2="22" stroke="#d4960a" stroke-width="1.5" opacity="0.6" filter="url(#hand-drawn)"/>
+          <!-- center diamond node -->
+          <polygon points="400,10 413,22 400,34 387,22" fill="#d4960a" stroke="#2c1810" stroke-width="1.8" opacity="0.92"/>
+          <!-- interval dots -->
+          <circle cx="160" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="240" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="320" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="480" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="560" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+          <circle cx="640" cy="22" r="2" fill="#d4960a" opacity="0.45"/>
+        </svg>
+      </div>
+    </div>
+    <p class="contact-subtitle reveal">欢迎聊聊 AI 产品、生物医学或任何有趣的想法！</p>
+    <div class="contact-links reveal">
+      <a href="mailto:tge6@illinois.edu" class="contact-card glass-card">
+        <span class="contact-icon">✉️</span><span>tge6@illinois.edu</span>
+      </a>
+      <div class="contact-card glass-card">
+        <span class="contact-icon">💬</span><span>微信：g17200321974</span>
+      </div>
+      <div class="contact-card glass-card">
+        <span class="contact-icon">📱</span><span>+1 2174802900</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 葛泰扬 &nbsp;·&nbsp; 用心制作 ♥</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -125,12 +125,12 @@ revealEls.forEach(el => revealObserver.observe(el));
 /* ===== 8. 雷达图（SVG 手绘） ===== */
 function drawRadarChart() {
   const skillData = [
-    { label: 'Python',    value: 85 },
-    { label: 'MATLAB',    value: 70 },
-    { label: 'ML',        value: 80 },
-    { label: '医学图像',  value: 65 },
-    { label: '数据分析',  value: 75 },
-    { label: '产品思维',  value: 80 },
+    { label: 'AI产品能力', value: 85 },
+    { label: '数据分析',   value: 75 },
+    { label: 'AI与模型',   value: 85 },
+    { label: '统计方法',   value: 70 },
+    { label: '医药领域',   value: 80 },
+    { label: '技术工具',   value: 75 },
   ];
 
   const svg  = document.getElementById('radar-svg');
@@ -240,7 +240,14 @@ const progressObserver = new IntersectionObserver((entries) => {
 const progressContainer = document.querySelector('.progress-container');
 if (progressContainer) progressObserver.observe(progressContainer);
 
-/* ===== 10. 灯箱 ===== */
+/* ===== 10. 核心技能手风琴 ===== */
+document.querySelectorAll('.skill-accordion-header').forEach(header => {
+  header.addEventListener('click', () => {
+    header.closest('.skill-accordion-item').classList.toggle('open');
+  });
+});
+
+/* ===== 11. 灯箱 ===== */
 const lightbox   = document.getElementById('lightbox');
 const lbClose    = document.getElementById('lb-close');
 const lbBackdrop = lightbox.querySelector('.lb-backdrop');

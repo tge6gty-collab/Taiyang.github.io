@@ -301,11 +301,6 @@ function openLightbox(card) {
 
   // 链接
   lbLinks.innerHTML = '';
-  if (github && github !== '#') {
-    lbLinks.innerHTML += `<a href="${github}" target="_blank" rel="noopener" class="lb-link lb-link-primary">GitHub →</a>`;
-  } else {
-    lbLinks.innerHTML += `<span class="lb-link lb-link-outline" style="opacity:0.45;cursor:default">GitHub（待更新）</span>`;
-  }
   if (demo && demo !== '#') {
     lbLinks.innerHTML += `<a href="${demo}" target="_blank" rel="noopener" class="lb-link lb-link-outline">Demo →</a>`;
   }

@@ -398,76 +398,38 @@
     <div class="projects-masonry">
 
       <div class="project-card glass-card"
-           data-title="生物医学图像分析"
-           data-desc="基于 U-Net 架构开发医学图像语义分割模型，在 MRI 脑部图像数据集上实现高精度病灶识别。运用数据增强和迁移学习策略，显著提升小样本条件下的模型鲁棒性，最终在测试集上达到 Dice 系数 0.87。"
-           data-tags="Python,PyTorch,OpenCV,U-Net"
-           data-color="linear-gradient(135deg,#8aab8e,#4a6b4a)"
-           data-github="#" data-demo="#">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#8aab8e,#4a6b4a)">
-          <span class="project-thumb-icon">🔬</span>
+           data-title="Drug Safety Checker — 药物安全检查器"
+           data-desc="个性化药物安全检测工具。用户输入年龄、性别、已知病史、药物过敏史与当前用药，系统基于 OpenAI API 对待查药物进行个性化风险评估，识别潜在药物相互作用（DDI）。支持自定义规则参数配置与中英双语界面，可处理药物名称或完整说明书文本输入。"
+           data-tags="OpenAI API,DDI 分析,个性化风险评估,多语言,药物安全"
+           data-color="linear-gradient(135deg,#1a6a7a,#0e4050)"
+           data-github="#" data-demo="https://tge6gty.github.io/drug-safety-checker/">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#1a6a7a,#0e4050)">
+          <span class="project-thumb-icon">💊</span>
         </div>
         <div class="project-body">
-          <h3>生物医学图像分析</h3>
-          <p>使用深度学习方法对医学 MRI 图像进行语义分割与病灶识别，实现高精度自动化诊断辅助。</p>
+          <h3>药物安全检查器</h3>
+          <p>基于 OpenAI API 的个性化药物风险评估工具，结合用户病史与用药档案，识别 DDI 潜在风险，支持中英双语。</p>
           <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">U-Net</span>
+            <span class="tag">OpenAI API</span><span class="tag">DDI 分析</span><span class="tag">药物安全</span>
           </div>
         </div>
         <div class="project-footer"><span class="lb-hint">点击查看详情 →</span></div>
       </div>
 
       <div class="project-card glass-card"
-           data-title="AI 产品需求分析工具"
-           data-desc="设计并原型化一款面向 AI 产品经理的需求管理工具，整合用户故事、功能优先级矩阵（RICE 模型）和竞品分析模块。通过 8 轮用户访谈验证核心痛点，完成从用户调研、竞品分析到 MVP 功能定义的完整产品设计流程，输出完整 PRD 文档与 Figma 高保真原型。"
-           data-tags="产品设计,Figma,用户研究,PRD,RICE"
-           data-color="linear-gradient(135deg,#d4960a,#8a6010)"
-           data-github="#" data-demo="#">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#d4960a,#8a6010)">
-          <span class="project-thumb-icon">📋</span>
+           data-title="医药健康违规内容审核 Agent"
+           data-desc="对标小红书的医药健康类 UGC 内容自动审核与人机协同系统。采用「违规词库扫描 → AI 上下文分析 → 置信度路由」三层防护体系，支持普通用户、认证医疗机构、商家账号等多账号类型审核。接入智谱 AI GLM-4 系列（Flash / Plus / Long），可根据成本与精度需求动态切换模型，内置违规、灰区、合规示例供快速测试。"
+           data-tags="智谱AI GLM-4,Claude Agent SDK,置信度路由,人机协同,UGC 审核"
+           data-color="linear-gradient(135deg,#5a3a8a,#321a5a)"
+           data-github="#" data-demo="https://tge6gty.github.io/medical-content-moderation/">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#5a3a8a,#321a5a)">
+          <span class="project-thumb-icon">🛡️</span>
         </div>
         <div class="project-body">
-          <h3>AI 产品需求分析工具</h3>
-          <p>面向 AI 产品经理的需求拆解与优先级分析助手，从用户调研到 MVP 定义的完整产品设计流程，含高保真 Figma 原型与完整 PRD。</p>
+          <h3>医药健康内容审核 Agent</h3>
+          <p>三层防护机制（词库扫描 + AI 分析 + 置信度路由）的 UGC 内容审核系统，接入 GLM-4，支持人机协同工作流。</p>
           <div class="project-tags">
-            <span class="tag">产品设计</span><span class="tag">Figma</span><span class="tag">用户研究</span>
-          </div>
-        </div>
-        <div class="project-footer"><span class="lb-hint">点击查看详情 →</span></div>
-      </div>
-
-      <div class="project-card glass-card"
-           data-title="生物信号特征提取与分类"
-           data-desc="在 MATLAB 环境下实现 ECG 和 EEG 信号的完整时频分析流程：小波变换去噪、基线漂移校正、R 波峰值检测、HRV 特征提取，以及基于 SVM 和随机森林的心律失常分类。在 MIT-BIH 公开数据集上实现分类准确率 94.2%。"
-           data-tags="MATLAB,Signal Processing,Wavelet,SVM,HRV"
-           data-color="linear-gradient(135deg,#c0394b,#7a2535)"
-           data-github="#" data-demo="#">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#c0394b,#7a2535)">
-          <span class="project-thumb-icon">📡</span>
-        </div>
-        <div class="project-body">
-          <h3>生物信号特征提取与分类</h3>
-          <p>ECG/EEG 信号时频分析与机器学习分类，MIT-BIH 数据集心律失常识别准确率 94.2%。</p>
-          <div class="project-tags">
-            <span class="tag">MATLAB</span><span class="tag">Signal Processing</span><span class="tag">SVM</span>
-          </div>
-        </div>
-        <div class="project-footer"><span class="lb-hint">点击查看详情 →</span></div>
-      </div>
-
-      <div class="project-card glass-card"
-           data-title="医疗数据可视化仪表盘"
-           data-desc="利用 Python 与 Plotly/Dash 框架搭建多维度医疗数据交互仪表盘，支持按科室、时间段、诊断类别多维筛选，实现患者流量时序展示、指标对比雷达图与异常预警标注。设计清晰信息架构，帮助医疗管理团队提升数据洞察效率约 40%。"
-           data-tags="Python,Plotly,Dash,数据可视化,交互设计"
-           data-color="linear-gradient(135deg,#3a7a3a,#1e4a1e)"
-           data-github="#" data-demo="#">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#3a7a3a,#1e4a1e)">
-          <span class="project-thumb-icon">📊</span>
-        </div>
-        <div class="project-body">
-          <h3>医疗数据可视化仪表盘</h3>
-          <p>多维度医疗数据交互式可视化展示平台，支持动态筛选、时序分析与异常预警，提升管理决策效率。</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">Plotly</span><span class="tag">Dash</span>
+            <span class="tag">GLM-4</span><span class="tag">置信度路由</span><span class="tag">人机协同</span>
           </div>
         </div>
         <div class="project-footer"><span class="lb-hint">点击查看详情 →</span></div>
